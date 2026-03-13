@@ -1,4 +1,4 @@
-module pe #(parameter DATA_WIDTH = 16)
+module PE #(parameter DATA_WIDTH = 16)
 (
     input wire clk,
     input wire reset,
@@ -19,6 +19,8 @@ module pe #(parameter DATA_WIDTH = 16)
     always @(posedge clk) begin
         if (reset) begin
             c_out <= 0;
+            a_out <= 0;
+            b_out <= 0;
             valid_out <= 0;
         end
         else begin
@@ -26,9 +28,8 @@ module pe #(parameter DATA_WIDTH = 16)
             b_out <= b_in;
             valid_out <= valid_in;
 
-            if (valid_in) begin
-                c_out <= c_out + mult;  //add chips due to chips * mult
-            end
+            if (valid_in)
+                c_out <= c_out + a_in * b_in;
         end
     end
 

@@ -13,7 +13,7 @@ BUILD_DIR = build
 
 # Files
 SRC_FILES = $(wildcard src/*.v)
-TB_FILES  = tests/systolic_array_4x4_tb.v
+TB_FILES  = tests/tb_systolic_array_4x4.v
 
 # Output executable
 OUT = $(BUILD_DIR)/pe_tb.out
